@@ -1,0 +1,83 @@
+.site-header {
+    position: block;
+    top: 0;
+    width: 100%;
+    height: 53px;
+    font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    z-index: 11;
+    -webkit-animation: fade-in 3s;
+    animation: fade-in 3s;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.125);
+  }
+  
+  .nav-container {
+    margin: 0 auto;
+    justify-content: space-between;
+    .site-name {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 10px 0 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      line-height: 0.8rem;
+      text-transform: uppercase;
+    }
+    .nav {
+      display: inline-block;
+      float: right;
+      font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+      .nav-menu {
+        margin: 0;
+        padding: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        li {
+          margin-right: 20px;
+          a {
+            position: relative;
+            display: block;
+            margin: 10px 0 0;
+            padding: 10px 0 20px;
+            font-size: 14.4px;
+            font-weight: bold;
+            line-height: 0.8rem;
+            &:before {
+              content: '';
+              position: absolute;
+              bottom: -2px;
+              height: 6px;
+              width: 100%;
+              background-color: #4c4c4c;
+              transition: all .3s cubic-bezier(.325, -.075, 0, 1.65);
+              transform: scaleX(0);
+            }
+            &:hover:before {
+              transform: scaleX(1);
+            }
+          }
+        }
+        li:last-child {
+          margin-right: 0px;
+        }
+      }
+    }
+    a {
+      color: #4c4c4c;
+    }
+    a:hover {
+      color: black;
+    }
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    padding-left: 1rem;
+    padding-right: 1rem
+  }
