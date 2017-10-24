@@ -13,7 +13,12 @@ var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
    // configure stuff here
 }
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 // 如果不加这两条，那么就会出现post和put中参数空白的情况

@@ -1,8 +1,10 @@
 {
   "name": "react-demo-4",
+  "proxy": "http://localhost:3001/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "husky": "^0.14.3",
