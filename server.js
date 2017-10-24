@@ -22,6 +22,7 @@ app.use(function(req, res, next) {
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 // 如果不加这两条，那么就会出现post和put中参数空白的情况
+//修改commit 邮箱
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
