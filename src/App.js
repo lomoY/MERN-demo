@@ -9,7 +9,7 @@ import Article from './pages/article/article'
 import Photo from './pages/photo'
 import About from './pages/about'
 import Edit from './pages/edit/edit'
-import style from './App.css'
+import './App.css'
 import NavHeader from './components/NavHeader/NavHeader'
 import Footer from'./components/NavFooter/footer'
 const SiteIndex = () => (
