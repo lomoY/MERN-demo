@@ -5,25 +5,19 @@ import {
   Link
 } from 'react-router-dom'
 import Home from './pages/home'
-import Article from './pages/article'
+import Article from './pages/article/article'
 import Photo from './pages/photo'
 import About from './pages/about'
 import Edit from './pages/edit/edit'
 import style from './App.css'
-import NavHeader from './components/NavHeader'
-import Footer from'./components/footer'
+import NavHeader from './components/NavHeader/NavHeader'
+import Footer from'./components/NavFooter/footer'
 const SiteIndex = () => (
   <Router>
     <div>
     <NavHeader/>
       <div>     
       </div>
-      {/* <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/topics">Topics</Link></li>
-      </ul> */}
-      {/* <img src="http://imglf2.nosdn.127.net/img/QVBFckZaZURQL3FlK3lleWU2NTJNM1hWL3BES0RIKzdlNkMvQjhsMTJDK09rYjF5NzZsemxnPT0.jpg"/> */}
       <Route exact path="/" component={Home}/>
       <Route path="/photo" component={Photo}/>
       <Route path="/about" component={About}/>
