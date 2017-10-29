@@ -1,5 +1,6 @@
 var express = require('express'),
 wine= require('./src/server/route/wines'),
+post=require('./src/server/route/post'),
 // To handle HTTP POST request in Express.js version 4 
 // and above, you need to install middleware module called body-parser.
 // body-parser extract the entire body portion of an 
@@ -32,6 +33,9 @@ app.post('/wines',wine.addWine);
 app.put('/wines/:id',wine.updateWine);
 app.delete('/wines/:id',wine.deleteWine);
 
+app.get('/post/:id', post.findById);
+app.post('/post',post.savePost);
+app.put('/post/:id',post.updatePost);
 
 
 
