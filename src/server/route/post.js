@@ -18,7 +18,7 @@ db.once('open', function() {
 var PostSchema = mongoose.Schema({
     title:String,
     subtitle:String,
-    content:String
+    contentState:String
 })
 
 // //将Schema和模型结合到一起
@@ -41,11 +41,12 @@ exports.findById = function(req, res) {
 
 // 保存当前Post
 exports.savePost = function(req, res) {
-    console.log(req.body)
     // console.log('Adding post: ' + JSON.stringify(post));
     var post = new Post();
-    post.content=req.body.content;
-    console.log(req.body)
+    post.contentState=req.body.contentState;
+    // console.log(req.body)
+    // console.log(req.body.contentState)
+    return
     post.save(function(err,savedPost){
         if(err){
             res.send(err)
@@ -60,19 +61,19 @@ exports.savePost = function(req, res) {
 
 // 更新当前的Post
 exports.updatePost = function(req,res) {
-    
+    console.log('req',req.params)
     Post.findById(req.params.id,function(err,post){//这里直接回通过req中的id找到表中的ObjectId
         if(err){
             res.send(err);
         }else{
-            console.log(req.body.content)
+            console.log('body',req.body)
 
-            post.content=req.body.content;
+            post.contentState=req.body.contentState;
             post.save(function(err){
                 if(err){
                     res.send(err)
                 }else{
-                    res.json('message:post已经更新')
+                    res.send(post)
                 }
             })            
         }

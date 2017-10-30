@@ -9,7 +9,7 @@ var PostCRUD = {
   getPost(id) {
     return axios({
       method: 'get',
-      url: '/post/59f4242682f4e135d39aefc9',
+      url: '/post/59f6bc44b7664b5fd2789c27',
       data: {
         id: id
       }
@@ -25,15 +25,23 @@ var PostCRUD = {
   *   subtitl:String
   *   content:??
   */
-  savePost(title, subtitle, content) {
+  savePost(contentState) {
     axios({
       method: 'post',
       url: '/post/',
-      data: {
-        title: title,
-        subtitle: subtitle,
-        content: content
-      }
+      data: {contentState: contentState}
+    }).then(function (res) {
+      console.log(res)
+    })
+  },
+
+  // 更新当前的post
+  updatePost(id,contentState){
+    axios({
+      method: 'put',
+      url: '/post/59f6bc44b7664b5fd2789c27',
+      // params:{id:'59f6bc44b7664b5fd2789c27'},//应该改为Id
+      data: {contentState: contentState}
     }).then(function (res) {
       console.log(res)
     })
