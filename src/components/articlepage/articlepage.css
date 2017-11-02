@@ -3,3 +3,9 @@
 
 .content {
   text-align: left; }
+
+.articleEditContainer {
+  margin-top: 5rem; }
+  .articleEditContainer .DraftEditor-root {
+    border: none;
+    font-size: 21px; }

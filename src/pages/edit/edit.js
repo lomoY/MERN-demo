@@ -2,7 +2,7 @@ import React from 'react'
 import Editor from '../../components/editor/editor'
 // import FlatButton from 'material-ui/FlatButton'
 import './edit.css'
-import PostCRUD from '../../service/postcrud'
+import {getPost,savePost} from '../../service/postcrud'
 import {stateToHTML} from 'draft-js-export-html'
 
 export default class PageEdit extends React.Component {
@@ -14,7 +14,6 @@ export default class PageEdit extends React.Component {
       content:''//文章正文
     }
 
-    this.saveArticle = this.saveArticle.bind(this)//这一条不是很懂
     
   }
 
@@ -26,12 +25,7 @@ export default class PageEdit extends React.Component {
   }
   // 方法：定时保存草稿（暂时不设置草稿功能，直接保存为原文）
   // 通过ID，定时（保存）更新数据库中的对象
-  saveArticle(){
-    // console.log(this);//PageEdit
-    var self=this;
-    console.log(self.state)
-    PostCRUD.savePost(self.state.title,self.state.content)
-  }
+ 
 
  
 
@@ -41,14 +35,14 @@ export default class PageEdit extends React.Component {
   // 初始化
   componentWillMount(){
     var self = this;
-    PostCRUD.getPost().then(function(res){
-      const data = res.data;
-      self.setState({
-        id:data._id,
-        content:data.content
-      })
-      console.log(self.state)
-    });
+    // getPost().then(function(res){
+    //   const data = res.data;
+    //   self.setState({
+    //     id:data._id,
+    //     content:data.content
+    //   })
+    //   console.log(self.state)
+    // });
   }
 
   render () {
@@ -57,13 +51,6 @@ export default class PageEdit extends React.Component {
         <h2>Edit</h2>
         <Editor/>
         <button type="button" onClick={this.showHtml}>显示html</button>
-        <button type='button' onClick={this.saveArticle}>
-          保存
-        </button>
-        <button type='button'>
-          取消
-        </button>
-        <div name='showhtml'></div>
       </div>
     )
   }

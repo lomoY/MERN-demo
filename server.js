@@ -1,5 +1,4 @@
 var express = require('express'),
-wine= require('./src/server/route/wines'),
 post=require('./src/server/route/post'),
 // To handle HTTP POST request in Express.js version 4 
 // and above, you need to install middleware module called body-parser.
@@ -27,15 +26,16 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/wines', wine.findAll);
-app.get('/wines/:id',wine.findById);
-app.post('/wines',wine.addWine);
-app.put('/wines/:id',wine.updateWine);
-app.delete('/wines/:id',wine.deleteWine);
+// app.get('/wines', wine.findAll);
+// app.get('/wines/:id',wine.findById);
+// app.post('/wines',wine.addWine);
+// app.put('/wines/:id',wine.updateWine);
+// app.delete('/wines/:id',wine.deleteWine);
 
 app.get('/post/:id', post.findById);
 app.post('/post',post.savePost);
 app.put('/post/:id',post.updatePost);
+app.get('/articlelist/',post.getArticleList);
 
 
 

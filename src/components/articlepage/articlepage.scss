@@ -5,3 +5,11 @@
 .content{
     text-align: left;
 }
+
+.articleEditContainer{
+    margin-top:5rem;
+    .DraftEditor-root {
+        border:none;
+        font-size:21px;
+     }
+}

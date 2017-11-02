@@ -1,2 +1,14 @@
 .DraftEditor-root {
   border: 1px solid black; }
+
+.articleTitle {
+  display: block;
+  border: none;
+  width: 100%;
+  text-align: center; }
+
+.articledesc {
+  display: block;
+  border: none;
+  width: 100%;
+  text-align: center; }

@@ -1,42 +1,37 @@
-import axios from 'axios'
-import React from 'react'
+import axios from 'axios';
+import React from 'react';
 
-// 编辑状态下的Post
 
-var PostCRUD = {
-
-  // 获取当前草稿的文本
-  getPost(id) {
+// 获取当前草稿的文本
+function getPost (id) {
     return axios({
       method: 'get',
-      url: '/post/59f6bc44b7664b5fd2789c27',
+      url: '/post/59f9bbadc78de505a65169e2',
       data: {
         id: id
       }
     }).then(function (res) {
     //   console.log(res)
-
       return res
     })
-  },
+  };
 
-  /* 保存草稿 提交当前文章到文章列表
-  *   title:String
-  *   subtitl:String
-  *   content:??
-  */
-  savePost(contentState) {
+function savePost(title,desc,contentState) {
     axios({
       method: 'post',
       url: '/post/',
-      data: {contentState: contentState}
+      data: {
+        title:title,
+        desc:desc,
+        contentState: contentState
+      }
     }).then(function (res) {
       console.log(res)
     })
-  },
+  };
 
-  // 更新当前的post
-  updatePost(id,contentState){
+// 更新当前的post
+function updatePost(id,contentState){
     axios({
       method: 'put',
       url: '/post/59f6bc44b7664b5fd2789c27',
@@ -45,7 +40,16 @@ var PostCRUD = {
     }).then(function (res) {
       console.log(res)
     })
-  }
+  };
+
+function getArticleList(){
+  return axios({
+    method:'get',
+    url:'/articlelist/'
+  }).then(function(res){
+    console.log(res);
+    return res.data
+  })
 }
 
 // 批量管理Post
@@ -53,4 +57,4 @@ class Posts extends React.Component {
   // 删除当前文章选中的文章，包含批量删除
 }
 
-export default PostCRUD
+export {getPost,savePost,updatePost,getArticleList}

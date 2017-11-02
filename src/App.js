@@ -6,31 +6,28 @@ import {
 } from 'react-router-dom'
 import Home from './pages/home'
 import Article from './pages/article/article'
+import ArticlePage from './components/articlepage/articlepage'
 import Photo from './pages/photo'
 import About from './pages/about'
 import Edit from './pages/edit/edit'
 import './App.css'
 import NavHeader from './components/NavHeader/NavHeader'
 import Footer from'./components/NavFooter/footer'
-const SiteIndex = () => (
+const RouterMap = () => (
   <Router>
     <div>
     <NavHeader/>
-      <div>     
-      </div>
       <Route exact path="/" component={Home}/>
       <Route path="/photo" component={Photo}/>
       <Route path="/about" component={About}/>
       <Route path="/edit" component={Edit}/>
       <Route path="/topics" component={Topics}/>
-      <Route path="/article" component={Article}/>
+      <Route path="/articleList" component={Article}/>
+      <Route path='/article/:id' component={ArticlePage} />
       <Footer/>
     </div>
   </Router>
 )
-
-
-
 
 const Topics = ({ match }) => (
   <div>
@@ -66,4 +63,4 @@ const Topic = ({ match }) => (
   </div>
 )
 
-export default SiteIndex
+export default RouterMap
