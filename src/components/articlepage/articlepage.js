@@ -5,7 +5,7 @@ import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor'
 import {getPost} from './../../service/postcrud'
 import './articlepage.css'
 
-export default class Edit extends React.Component {
+export default class ArticlePage extends React.Component {
 
   constructor (props) {
     super(props)
@@ -13,6 +13,8 @@ export default class Edit extends React.Component {
     const content = window
       .localStorage
       .getItem('content')
+    // 当前页面的_id
+    this.state._id = props.match.params._id;
 
     if (content) {
       this.state.editorState = EditorState.createWithContent(convertFromRaw(JSON.parse(content)))

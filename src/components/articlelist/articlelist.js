@@ -10,7 +10,7 @@ export default class ArticleList extends React.Component {
       itemLength: null,
       items: []
     }
-    this.renderArticle=this.renderArticle.bind(this)
+    this.renderArticle = this.renderArticle.bind(this)
   }
 
   renderItem () {
@@ -50,21 +50,17 @@ export default class ArticleList extends React.Component {
     })
   }
 
-  renderArticle({ match }){
-      console.log(match)
-      return <ArticleItem id={'59f9bbadc78de505a65169e2'}/>
-  };
+  renderArticle ({ match }) {
+    return <ArticleItem id={'/59f9bbadc78de505a65169e2'} />
+  }
 
   render () {
     return (
       <div>
         <h1>ArticleList</h1>
-        <Router>
-          <ul>
-            {this.renderItem()}
-          </ul>
-        </Router>
-        {/* {<Route path='/article/:id' component={this.renderArticle} />} */}
+        <ul>
+          {this.renderItem()}
+        </ul>
       </div>
     )
   }
@@ -85,9 +81,8 @@ class ArticleItem extends React.Component {
 
   render () {
     return (
-
       <li className='articleItem' _id={this.props._id}>
-        <Link to={this.props._id}>
+        <Link to={'/article/' + this.props._id}>
         <div>
           {this.props.title}
         </div>

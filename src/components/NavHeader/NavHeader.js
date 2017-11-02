@@ -19,7 +19,7 @@ export default class NavHeader extends React.Component {
                 </Link>
               </li>
               <li>
-                <Link className='page-link' to='/articleList'> Article
+                <Link className='page-link' to='/article'> Article
                 </Link>
               </li>
               <li>

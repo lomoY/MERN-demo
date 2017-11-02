@@ -4,6 +4,7 @@ import React from 'react';
 
 // 获取当前草稿的文本
 function getPost (id) {
+  console.log(id)
     return axios({
       method: 'get',
       url: '/post/59f9bbadc78de505a65169e2',
